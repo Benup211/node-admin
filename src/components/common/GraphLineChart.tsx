@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ILineChart } from "../../interface/Components.Common.ILineChart";
 import {
   LineChart,
   Line,
@@ -9,63 +8,15 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { IGraphLineChartProps } from "../../interface/Components.Common.IGraphLineChart";
 
-export const GraphLineChart = () => {
-  const data: ILineChart[] = [
-    {
-        name: "Jan",
-        value: 4000,
-    },
-    {
-        name: "Feb",
-        value: 3000,
-    },
-    {
-        name: "Mar",
-        value: 2000,
-    },
-    {
-        name: "Apr",
-        value: 2780,
-    },
-    {
-        name: "May",
-        value: 1890,
-    },
-    {
-        name: "Jun",
-        value: 2390,
-    },
-    {
-        name: "Jul",
-        value: 3490,
-    },
-    {
-        name: "Aug",
-        value: 3490,
-    },
-    {
-        name: "Sep",
-        value: 3490,
-    },
-    {
-        name: "Oct",
-        value: 3490,
-    },
-    {
-        name: "Nov",
-        value: 3490,
-    },
-    {
-        name: "Dec",
-        value: 3490,
-    }];
+export const GraphLineChart = ({data}:IGraphLineChartProps) => {
   return (
-    <motion.div className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700">
+    <motion.div className="overflow-x-auto bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700">
       <h2 className="text-lg font-medium mb-4 text-gray-100">
         Sales OverView
       </h2>
-      <div className="h-80">
+      <div className="h-80 min-w-80">
         <ResponsiveContainer width={"100%"} height={"100%"}>
           <LineChart data={data}>
             <XAxis dataKey={"name"} stroke={"#4B5563"}/>
